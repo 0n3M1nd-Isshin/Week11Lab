@@ -18,7 +18,11 @@ public class AccountService {
 				// Log activity
                 Logger.getLogger(AccountService.class.getName()).log(Level.INFO, "Successful login by {0}", email);
                 
-				// Send E-mail
+                String msgBody = "Your account has logged in.";
+                GmailService.sendMail(email, "Log in Activity", msgBody, false);
+                
+                /*
+		// Send E-mail
 				
                 String to = user.getEmail();
                 String subject = "Notes App Login";
@@ -30,7 +34,7 @@ public class AccountService {
                 tags.put("date", (new java.util.Date()).toString());
                 
                 GmailService.sendMail(to, subject, template, tags);
-				
+		*/	
 
                 return user;
             }
